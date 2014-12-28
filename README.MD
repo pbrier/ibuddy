@@ -1,8 +1,8 @@
 iBuddy
 ======
 
-Command line program to control ibuddy USB device.
-The IBuddy is a small angel like figure that has moveable body, wings and 4 LEDs. It was once conceived to 
+Command line program to control iBuddy USB device.
+The iBuddy is a small angel like figure that has moveable body, wings and 4 LEDs. It was once conceived to 
 signal the presence of buddies on MSN (What??) around 2008. I found an abandoned one and wanted it to move. 
 The original software was of no use. But there was some (old) code on-line. 
 I wanted a small stand-alone command line tool. This is what came out of that.
@@ -33,3 +33,5 @@ Each code (on the command line or on a line in the text file) has the following 
 * A   Rotate body anti-clockwise
  
 Note: all upper-case letters
+
+![alt text](https://github.com/pbrier/ibuddy/raw/master/ibuddy/ibuddy.jpg "iBuddy image")
