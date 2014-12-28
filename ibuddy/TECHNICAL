@@ -1,0 +1,63 @@
+The i-Buddy is controlled by sending an 8-byte output report to
+the control port of the second USB HID device. Note: SECOND! 
+(for some reason the iBuddy has two interfaces, the first one is not used)
+
+Some code first sends an "Init string" to the interface, but this does not
+seem to be required with the device I tested it with.
+
+Init string: { 0x00, 0x22, 0x09, 0x00, 0x02, 0x01, 0x00, 0x00, 0x00 }
+
+Now for sending the control code:
+
+The first 7 bytes of this output report are always the same; the
+last byte controls the state of the i-Buddy.
+
+
+  buf[0] = 0x00;  // 0 == Send to control port
+  buf[1] = 0x55;  // Allways the same
+  buf[2] = 0x53;
+  buf[3] = 0x42;
+  buf[4] = 0x43;
+  buf[5] = 0x00;
+  buf[6] = 0x40;
+  buf[7] = 0x02;
+  buf[8] = code;  // The actual code
+
+
+The code bit configuration is as follows:
+
+  +-----+-----+-----+-----+-----+-----+-----+-----+
+  |  7  |  6  |  5  |  4  |  3  |  2  |  1  |  0  |
+  |     |     |     |     |     |     |     |     |
+  |heart|    head color   |   wings   |  turning  |
+  +-----+-----+-----+-----+-----+-----+-----+-----+
+
+bits 0-1: position of the body
+
+    1 = left
+    2 = right
+    0 = middle, but only after right
+    3 = a little to the middle, but only after right
+
+bits 2-3: position of the wings
+
+    1 = wings high
+    2 = wings low
+
+bits 4-6: color of the head, in terms of the RGB leds inside
+
+        bits   lights   color
+        ---     ---     ---
+    0   000     BGR     white
+    1   001     BG.     cyan
+    2   010     B.R     purple
+    3   011     B..     blue
+    4   100     .GR     yellow
+    5   101     .G.     green
+    6   110     ..R     red
+    7   111     ...     off
+
+bit 7: heart light
+
+    0 = on
+    1 = off

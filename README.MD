@@ -22,14 +22,14 @@ Each code (on the command line or on a line in the text file) has the following 
  
     [time in msec]RGBHUDCA
  
-[time in msec] Waiting time before the code is sent
-R   Red LED ON
-G   Green LED ON
-B   Blue LED ON
-H   Heart LED ON
-U   Wings UP
-D   Wings DOWN
-C   Rotate body clockwise
-A   Rotate body anti-clockwise
+* [time in msec] Waiting time before the code is sent
+* R   Red LED ON
+* G   Green LED ON
+* B   Blue LED ON
+* H   Heart LED ON
+* U   Wings UP
+* D   Wings DOWN
+* C   Rotate body clockwise
+* A   Rotate body anti-clockwise
  
 Note: all upper-case letters

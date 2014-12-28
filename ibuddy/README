@@ -1,0 +1,8 @@
+Acknowledgements
+
+A lot of thanks to Jan Axelson for his excellent "generic hid" demonstration
+software [1], which finally showed me to send the correct control codes to the
+i-Buddy, in combination with USBlyzer [2].
+
+[1] http://www.lvr.com/hidpage.htm
+[2] http://www.usblyzer.com/
